@@ -16,11 +16,12 @@ import {
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+import { evangelismData } from "./data";
 
 const Home = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      {data.map((item, index) => (
+    <div className="pt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      {evangelismData.map((item, index) => (
         <Card key={index} className="shadow-lg rounded-xl p-4">
           <CardContent>
             <h2 className="text-xl font-semibold">{item.name}</h2>
