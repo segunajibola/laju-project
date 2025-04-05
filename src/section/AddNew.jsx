@@ -8,7 +8,6 @@ import DatabaseSwitcher from "./DatabaseSwitcher";
 export default function AddDataPage() {
   const [currentDB, setCurrentDB] = useState("evangelismData");
   currentDB === evangelismData ? "evangelismData" : "alterCall";
-  // EvangelismForm: "",
   const [formData, setFormData] = useState({});
   useEffect(() => {
     const dynamicKey =
