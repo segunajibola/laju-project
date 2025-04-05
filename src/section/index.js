@@ -1,6 +1,5 @@
 import Home from "./Home";
-import Response from "./Response";
+import AddNew from "./AddNew";
 import Navbar from "./Navbar";
-import Offer from "./Offer";
 
-export { Home, Response, Navbar, Offer };
+export { Home, AddNew, Navbar };

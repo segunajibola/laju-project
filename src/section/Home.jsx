@@ -16,24 +16,65 @@ import {
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { evangelismData } from "./data";
-
+import { evangelismData, alterCall } from "./data";
+import DatabaseSwitcher from "./DatabaseSwitcher";
 const Home = () => {
+  const [currentDB, setCurrentDB] = useState("evangelismData");
+  const data = currentDB === "evangelismData" ? evangelismData : alterCall;
+
+  const handleSwitch = (db) => {
+    setCurrentDB(db);
+  };
+
   return (
-    <div className="pt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      {evangelismData.map((item, index) => (
-        <Card key={index} className="shadow-lg rounded-xl p-4">
-          <CardContent>
-            <h2 className="text-xl font-semibold">{item.name}</h2>
-            <p className="text-sm text-gray-600">{item.evangelismForm}</p>
-            <p className="text-sm">Date: {item.date}</p>
-            <p className="text-sm">Phone: {item.phoneNumber}</p>
-            <p className="text-sm">Gender: {item.gender}</p>
-            <p className="text-sm">Worker: {item.assignedWorker}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    <>
+      <DatabaseSwitcher onSwitch={handleSwitch} />
+      <div className="pt-36 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {data.map((item, index) => (
+          <Card key={index} className="shadow-lg rounded-xl p-4">
+            <CardContent className="flex flex-col gap-2">
+              <h2 className="text-xl font-semibold">{item.name}</h2>
+              {data === evangelismData ? (
+                <p className="text-sm">
+                  Form of Envangelism: {item.formOfEvangelism}
+                </p>
+              ) : (
+                <p className="text-sm">Church Program: {item.churchProgram}</p>
+              )}
+              <p className="text-sm">Date of Visit: {item.dateOfVisit}</p>
+              <p className="text-sm">Phone Number: {item.phoneNumber}</p>
+              <p className="text-sm">Gender: {item.sex}</p>
+              <p className="text-sm">Assigned Worker: {item.assignedWorker}</p>
+              <p className="text-sm">
+                Contacted:{" "}
+                {item.contacted === true
+                  ? "Yes"
+                  : item.contacted === false
+                  ? "No"
+                  : ""}
+              </p>
+              <p className="text-sm">
+                Interested in Foundation Class:{" "}
+                {item.foundationClass === true
+                  ? "Yes"
+                  : item.foundationClass === false
+                  ? "No"
+                  : ""}
+              </p>
+              <p className="text-sm">
+                Interested in Counselling Class:{" "}
+                {item.foundationClass === true
+                  ? "Yes"
+                  : item.foundationClass === false
+                  ? "No"
+                  : ""}
+              </p>
+              <p className="text-sm">Feedback: {item.feedback}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </>
   );
 };
 

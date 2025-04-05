@@ -5,19 +5,12 @@ const Navbar = () => {
     <nav className="fixed w-full bg-gray-800 text-white p-4 flex justify-between items-center">
       <div className="text-xl font-bold">Follow-up List</div>
       <div className="space-x-4">
-        {/* <Link to="/offer" className="hover:text-gray-300">
-          Offer
-        </Link>
         <Link to="/" className="hover:text-gray-300">
-          InvestorList
+          Home
         </Link>
-        <Link to="/feedback" className="hover:text-gray-300">
-          Feedback
-        </Link> */}
-
-        {/* <Link to="/new" className="hover:text-gray-300">
+        <Link to="/add-new" className="hover:text-gray-300">
           Add New
-        </Link> */}
+        </Link>
       </div>
     </nav>
   );

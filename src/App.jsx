@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Home, Response, Navbar, Offer } from "./section/index.js";
+import { Home, AddNew, Navbar } from "./section/index.js";
 
 function App() {
   return (
@@ -8,8 +8,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/feedback" element={<Response />} />
-        <Route path="/offer" element={<Offer />} /> */}
+        <Route path="/add-new" element={<AddNew />} />
       </Routes>
     </>
   );
