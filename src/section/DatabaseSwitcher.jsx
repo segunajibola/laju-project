@@ -27,7 +27,7 @@ export default function DatabaseSwitcher({ onSwitch }) {
           {db === "evangelismData"
             ? "Envagelism"
             : db === "alterCall"
-            ? "Alter Call"
+            ? "Altar Call"
             : ""}
         </Button>
       ))}
