@@ -60,7 +60,6 @@ const Home = () => {
   return (
     <>
       <DatabaseSwitcher onSwitch={setCurrentDB} />
-
       {/* Worker Filter Dropdown */}
       <div className="pt-36 pb-4 px-4 flex justify-center">
         <select
@@ -76,7 +75,7 @@ const Home = () => {
           ))}
         </select>
       </div>
-
+      {/* //. */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {filteredData.map((item, index) => (
           <Card key={index} className="shadow-lg rounded-xl p-4">
@@ -101,7 +100,8 @@ const Home = () => {
                     className="text-blue-600 hover:underline flex items-center"
                     title="Call"
                   >
-                    <Phone className="w-4 h-4 ml-1" />
+                    <span></span>
+                    <Phone className="w-5 h-5 ml-1" />
                   </a>
                 )}
               </div>
